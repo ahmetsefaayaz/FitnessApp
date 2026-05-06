@@ -37,3 +37,9 @@ You can run the entire infrastructure using Docker. No local SDKs or Databases a
 3. Run the following command:
    ```bash
    docker-compose up -d --build
+```
+4. Access the Swagger UI at: `http://localhost:5000/swagger`
+
+## 🧪 Current Status & Roadmap
+*   Core Domain (Diet) and critical Application business rules are covered by Unit Tests using xUnit and Moq. 
+*   Test coverage expansion is currently in progress.
