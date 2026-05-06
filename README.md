@@ -37,7 +37,7 @@ You can run the entire infrastructure using Docker. No local SDKs or Databases a
 3. Run the following command:
    ```bash
    docker-compose up -d --build
-```
+   
 4. Access the Swagger UI at: `http://localhost:5000/swagger`
 
 ## 🧪 Current Status & Roadmap
