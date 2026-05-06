@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  postgres_db:
+    image: postgres:15-alpine
+    container_name: fitness_postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 'YOUR_DB_PASSWORD_HERE'
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - fitness_network
+
+  redis_cache:
+    image: redis:7-alpine
+    container_name: fitness_redis
+    ports:
+      - "6379:6379"
+    networks:
+      - fitness_network
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fitness_api
+    ports:
+      - "5000:8080" 
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__WorkoutConnection=Host=postgres_db;Port=5432;Database=FitnessWorkoutDb;Username=postgres;Password=YOUR_DB_PASSWORD_HERE
+      - ConnectionStrings__IdentityConnection=Host=postgres_db;Port=5432;Database=FitnessIdentityDb;Username=postgres;Password=YOUR_DB_PASSWORD_HERE
+      - ConnectionStrings__NutritionConnection=Host=postgres_db;Port=5432;Database=FitnessNutritionDb;Username=postgres;Password=YOUR_DB_PASSWORD_HERE
+      - ConnectionStrings__RedisConnection=redis_cache:6379
+    depends_on:
+      - postgres_db
+      - redis_cache
+    networks:
+      - fitness_network
+
+networks:
+  fitness_network:
+    driver: bridge
+
+volumes:
+  postgres_data:
