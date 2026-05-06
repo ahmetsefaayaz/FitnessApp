@@ -1,4 +1,4 @@
-# 🏋️‍♂️ FitnessApp Backend
+# FitnessApp Backend
 
 A highly scalable and maintainable RESTful API built for fitness, workout, and nutrition tracking. This project demonstrates enterprise-level backend development practices using a **Modular Monolith** architecture.
 
@@ -40,6 +40,6 @@ You can run the entire infrastructure using Docker. No local SDKs or Databases a
    
 4. Access the Swagger UI at: `http://localhost:5000/swagger`
 
-## 🧪 Current Status & Roadmap
+## Current Status & Roadmap
 *   Core Domain (Diet) and critical Application business rules are covered by Unit Tests using xUnit and Moq. 
 *   Test coverage expansion is currently in progress.
