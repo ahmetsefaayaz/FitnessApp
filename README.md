@@ -11,6 +11,7 @@ A highly scalable and maintainable RESTful API built for fitness, workout, and n
 *   **Database:** PostgreSQL & Entity Framework Core (Code-First)
 *   **Caching:** Redis
 *   **Authentication:** JWT (JSON Web Tokens)
+*   **Testing:** xUnit & Moq
 *   **Containerization:** Docker & Docker Compose
 
 ##  Modules
